@@ -1,0 +1,14 @@
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\UnitTestSpendingTrack.deps.json
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\UnitTestSpendingTrack.runtimeconfig.json
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\UnitTestSpendingTrack.runtimeconfig.dev.json
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\UnitTestSpendingTrack.dll
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\SpendingTrack.dll
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\bin\Debug\netcoreapp2.1\SpendingTrack.pdb
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\obj\Debug\netcoreapp2.1\UnitTestSpendingTrack.csprojAssemblyReference.cache
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\obj\Debug\netcoreapp2.1\UnitTestSpendingTrack.csproj.CoreCompileInputs.cache
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\obj\Debug\netcoreapp2.1\UnitTestSpendingTrack.AssemblyInfoInputs.cache
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\obj\Debug\netcoreapp2.1\UnitTestSpendingTrack.AssemblyInfo.cs
+C:\Users\Tae\Source\Repos\SpendingTrack\UnitTestSpendingTrack\obj\Debug\netcoreapp2.1\UnitTestSpendingTrack.csproj.CopyComplete
