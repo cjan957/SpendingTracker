@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Net.Http.Headers;
 
-namespace MemeBank.Helpers
+namespace SpendingTrack.Helpers
 {
     public static class MultipartRequestHelper
     {

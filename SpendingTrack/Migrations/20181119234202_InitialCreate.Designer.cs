@@ -8,7 +8,7 @@ using SpendingTrack.Models;
 namespace SpendingTrack.Migrations
 {
     [DbContext(typeof(SpendingTrackContext))]
-    [Migration("20181119064610_InitialCreate")]
+    [Migration("20181119234202_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,17 @@ namespace SpendingTrack.Migrations
 
                     b.Property<string>("Category");
 
-                    b.Property<int>("Cost");
+                    b.Property<double>("Cost");
+
+                    b.Property<string>("CreatedAt");
 
                     b.Property<string>("Currency");
 
                     b.Property<string>("Heading");
 
                     b.Property<string>("Note");
+
+                    b.Property<string>("ReceiptID");
 
                     b.Property<int>("TripID");
 

@@ -14,5 +14,7 @@ namespace SpendingTrack.Models
         public double Cost { get; set; }
         public string Currency { get; set; }
         public string Note { get; set; }
+        public string ReceiptID { get; set; }
+        public string CreatedAt { get; set; }
     }
 }

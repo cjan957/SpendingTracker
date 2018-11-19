@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MemeBank.Helpers;
+using SpendingTrack.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +20,7 @@ namespace SpendingTrack.Controllers
     {
         private readonly SpendingTrackContext _context;
         private IConfiguration _configuration;
+
 
         public SpendingController(SpendingTrackContext context, IConfiguration configuration)
         {
@@ -97,11 +98,26 @@ namespace SpendingTrack.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.SpendingItem.Add(spendingItem);
-            await _context.SaveChangesAsync();
+            //Do sanity check before posting
+            if (SpendingItemHelper.ValidCategory(spendingItem.Category) && spendingItem.Heading != null
+                && spendingItem.Cost != 0 && spendingItem.Currency != null)
+            {
+                //Create a timestamp
+                DateTime currentDateTime = DateTime.Now;
+                string sqlCurrentTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                spendingItem.CreatedAt = sqlCurrentTime;
 
-            return CreatedAtAction("GetSpendingItem", new { id = spendingItem.ID }, spendingItem);
+                _context.SpendingItem.Add(spendingItem);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetSpendingItem", new { id = spendingItem.ID }, spendingItem);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
+
+
 
         // DELETE: api/Spending/5
         [HttpDelete("{id}")]
@@ -155,7 +171,7 @@ namespace SpendingTrack.Controllers
                     if (string.IsNullOrEmpty(cloudBlock.StorageUri.ToString()))
                     {
                         return BadRequest("An error has occured while uploading your file, please try again");
-                  
+
                     }
                     SpendingItem spendingItem = new SpendingItem();
                     spendingItem.Heading = receipt.Title;
