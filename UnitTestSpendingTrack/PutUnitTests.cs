@@ -27,6 +27,7 @@ namespace UnitTestSpendingTrack
                 SpendingItem spendingItem1 = new SpendingItem()
                 {
                     Heading = memeTitles[0]
+                    //add more stuff
                 };
 
                 SpendingItem spendingItem2 = new SpendingItem()

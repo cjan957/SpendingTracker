@@ -26,7 +26,7 @@ namespace SpendingTrack.Models
                         TripID = 0,
                         Category = "Transport",
                         Heading = "Opal Card Topup",
-                        Cost = 10,
+                        Cost = 10.2,
                         Currency = "AUD",
                         Note = "Mum's card topup at Circular Quay"
                     }
