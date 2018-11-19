@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemeBank.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 using SpendingTrack.Models;
 
 namespace SpendingTrack.Controllers
@@ -14,10 +19,12 @@ namespace SpendingTrack.Controllers
     public class SpendingController : ControllerBase
     {
         private readonly SpendingTrackContext _context;
+        private IConfiguration _configuration;
 
-        public SpendingController(SpendingTrackContext context)
+        public SpendingController(SpendingTrackContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/Spending
@@ -131,6 +138,98 @@ namespace SpendingTrack.Controllers
             var list = await spending.ToListAsync();
 
             return list;
+        }
+
+        [HttpPost, Route("upload")]
+        public async Task<IActionResult> UploadFile([FromForm] ReceiptImageItem receipt)
+        {
+            if (!MultipartRequestHelper.IsMultipartContentType(Request.ContentType))
+            {
+                return BadRequest($"Expected a  multipart request, but got {Request.ContentType}");
+            }
+            try
+            {
+                using (var stream = receipt.Image.OpenReadStream())
+                {
+                    var cloudBlock = await UploadToBlob(receipt.Image.FileName, null, stream);
+                    if (string.IsNullOrEmpty(cloudBlock.StorageUri.ToString()))
+                    {
+                        return BadRequest("An error has occured while uploading your file, please try again");
+                  
+                    }
+                    SpendingItem spendingItem = new SpendingItem();
+                    spendingItem.Heading = receipt.Title;
+                    spendingItem.TripID = receipt.TripID;
+                    spendingItem.ID = receipt.ItemID;
+
+                    System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
+
+                    _context.SpendingItem.Add(spendingItem); //add to db
+                    await _context.SaveChangesAsync();
+
+                    return Ok($"File: {receipt.Title} has successfully uploaded");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error has occured. Details: {ex.Message}");
+            }
+        }
+
+        private async Task<CloudBlockBlob> UploadToBlob(string filename, byte[] imageBuffer = null, System.IO.Stream stream = null)
+        {
+            var accountName = _configuration["AzureBlob:name"];
+            var accountKey = _configuration["AzureBlob:key"]; ;
+            var storageAccount = new CloudStorageAccount(new StorageCredentials(accountName, accountKey), true);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            CloudBlobContainer imagesContainer = blobClient.GetContainerReference("images");
+
+            string storageConnectionString = _configuration["AzureBlob:connectionString"];
+
+            // Check whether the connection string can be parsed.
+            if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+            {
+                try
+                {
+                    // Generate a new filename for every new blob
+                    var fileName = Guid.NewGuid().ToString();
+                    fileName += GetFileExtention(filename);
+
+                    // Get a reference to the blob address, then upload the file to the blob.
+                    CloudBlockBlob cloudBlockBlob = imagesContainer.GetBlockBlobReference(fileName);
+
+                    if (stream != null)
+                    {
+                        await cloudBlockBlob.UploadFromStreamAsync(stream);
+                    }
+                    else
+                    {
+                        return new CloudBlockBlob(new Uri(""));
+                    }
+
+                    return cloudBlockBlob;
+                }
+                catch (StorageException ex)
+                {
+                    return new CloudBlockBlob(new Uri(""));
+                }
+            }
+            else
+            {
+                return new CloudBlockBlob(new Uri(""));
+            }
+        }
+
+        private string GetFileExtention(string fileName)
+        {
+            if (!fileName.Contains("."))
+                return ""; //no extension
+            else
+            {
+                var extentionList = fileName.Split('.');
+                return "." + extentionList.Last(); //assumes last item is the extension 
+            }
         }
     }
 }
