@@ -54,6 +54,19 @@ namespace SpendingTrack.Controllers
             return Ok(spendingItem);
         }
 
+        [HttpGet("costbytrip/{id}")]
+        public async Task<double> CostByTrip([FromRoute] int id)
+        {
+            var allSpendings = (from m in _context.SpendingItem where m.TripID == id select m.Cost);
+            if (allSpendings == null)
+            {
+                return 0;
+            }
+
+            var listOfSpendings = await allSpendings.ToListAsync();
+            return listOfSpendings.Sum();
+        }
+
         // PUT: api/Spending/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSpendingItem([FromRoute] int id, [FromBody] SpendingItem spendingItem)
