@@ -68,6 +68,13 @@ namespace SpendingTrack.Controllers
                 return BadRequest();
             }
 
+
+            if (!SpendingItemHelper.ValidCategory(spendingItem.Category) || spendingItem.Heading == null
+               || spendingItem.Cost == 0 || spendingItem.Currency == null)
+            {
+                return UnprocessableEntity();
+            }
+
             _context.Entry(spendingItem).State = EntityState.Modified;
 
             try
@@ -102,18 +109,13 @@ namespace SpendingTrack.Controllers
             if (SpendingItemHelper.ValidCategory(spendingItem.Category) && spendingItem.Heading != null
                 && spendingItem.Cost != 0 && spendingItem.Currency != null)
             {
-                //Create a timestamp
-                DateTime currentDateTime = DateTime.Now;
-                string sqlCurrentTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
-                spendingItem.CreatedAt = sqlCurrentTime;
-
                 _context.SpendingItem.Add(spendingItem);
                 await _context.SaveChangesAsync();
                 return CreatedAtAction("GetSpendingItem", new { id = spendingItem.ID }, spendingItem);
             }
             else
             {
-                return BadRequest(ModelState);
+                return UnprocessableEntity(ModelState);
             }
         }
 
