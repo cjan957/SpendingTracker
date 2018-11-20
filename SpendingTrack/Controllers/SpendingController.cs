@@ -60,7 +60,7 @@ namespace SpendingTrack.Controllers
             var allSpendings = (from m in _context.SpendingItem where m.TripID == id select m.Cost);
             if (allSpendings == null)
             {
-                return 0;
+                return -1;
             }
 
             var listOfSpendings = await allSpendings.ToListAsync();
