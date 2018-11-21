@@ -13119,11 +13119,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\SpendingTrack\\SpendingTrack.csproj",
+      "projectUniqueName": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\SpendingTrack\\SpendingTrack.csproj",
       "projectName": "SpendingTrack",
-      "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\SpendingTrack\\SpendingTrack.csproj",
+      "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\SpendingTrack\\SpendingTrack.csproj",
       "packagesPath": "C:\\Users\\Tae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\SpendingTrack\\obj\\",
+      "outputPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\SpendingTrack\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

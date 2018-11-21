@@ -10373,11 +10373,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\UnitTestSpendingTrack\\UnitTestSpendingTrack.csproj",
+      "projectUniqueName": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\UnitTestSpendingTrack\\UnitTestSpendingTrack.csproj",
       "projectName": "UnitTestSpendingTrack",
-      "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\UnitTestSpendingTrack\\UnitTestSpendingTrack.csproj",
+      "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\UnitTestSpendingTrack\\UnitTestSpendingTrack.csproj",
       "packagesPath": "C:\\Users\\Tae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\UnitTestSpendingTrack\\obj\\",
+      "outputPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\UnitTestSpendingTrack\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10396,8 +10396,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\SpendingTrack\\SpendingTrack.csproj": {
-              "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTrack\\SpendingTrack\\SpendingTrack.csproj"
+            "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\SpendingTrack\\SpendingTrack.csproj": {
+              "projectPath": "C:\\Users\\Tae\\Source\\Repos\\SpendingTracker\\SpendingTrack\\SpendingTrack.csproj"
             }
           }
         }
