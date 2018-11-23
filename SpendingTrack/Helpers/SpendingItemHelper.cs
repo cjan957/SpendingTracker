@@ -14,7 +14,7 @@ namespace SpendingTrack.Helpers
                    || lowerCategory == "flight" || lowerCategory == "food"
                    || lowerCategory == "grocery" || lowerCategory == "localtransport"
                    || lowerCategory == "phonedata" || lowerCategory == "shopping"
-                   || lowerCategory == "souvenir")
+                   || lowerCategory == "souvenir" || lowerCategory == "other")
             {
                 return true;
             }

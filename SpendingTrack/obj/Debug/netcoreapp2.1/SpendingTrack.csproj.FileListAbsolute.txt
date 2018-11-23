@@ -17,6 +17,7 @@ C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\bin\Debug\netcoreapp2.1\
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\bin\Debug\netcoreapp2.1\SpendingTrack.runtimeconfig.dev.json
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\bin\Debug\netcoreapp2.1\SpendingTrack.dll
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\bin\Debug\netcoreapp2.1\SpendingTrack.pdb
+C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\obj\Debug\netcoreapp2.1\SpendingTrack.csprojAssemblyReference.cache
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\obj\Debug\netcoreapp2.1\SpendingTrack.csproj.CoreCompileInputs.cache
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\obj\Debug\netcoreapp2.1\SpendingTrack.RazorAssemblyInfo.cache
 C:\Users\Tae\Source\Repos\SpendingTracker\SpendingTrack\obj\Debug\netcoreapp2.1\SpendingTrack.RazorAssemblyInfo.cs
