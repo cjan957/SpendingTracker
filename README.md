@@ -52,7 +52,7 @@ See where the API is used: [SpendingTracker UI](https://github.com/cjan957/Spend
 **DELETE**:
 - spending/{id} - delete a specific spending item
 
-## Tools/Library/Services
+## Tools/Libraries/Services
 * .NET Core API
 * C#
 * Azure Web App
